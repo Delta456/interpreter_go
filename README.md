@@ -2,6 +2,6 @@
 
 Source code for [Writing an Interpreter in Go Book](https://interpreterbook.com). Made for learning purpose.
 
-## LICENSE
+## License
 
 Released under [MIT](LICENSE.md)
