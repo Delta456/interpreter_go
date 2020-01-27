@@ -86,14 +86,15 @@ func TestNextToken2(t *testing.T) {
 	};
 	
 	let result = add(five, ten);
-    !-/*5;
-	5 < 10 > 5;
+	!-/*5;
 	
-    if (5 < 10) {
+    if (< ) {
      return true;
     } else {
     return false;
-    }
+	}
+	==
+	!=
 	`
 	tests := []struct {
 		expectedType    token.TokenType
@@ -137,6 +138,7 @@ func TestNextToken2(t *testing.T) {
 		{token.SEMICOLON, ";"},
 		{token.BANG, "!"},
 		{token.MINUS, "-"},
+		{token.SLASH, "/"},
 		{token.ASTERISK, "*"},
 		{token.INT, "5"},
 		{token.SEMICOLON, ";"},
@@ -144,17 +146,19 @@ func TestNextToken2(t *testing.T) {
 		{token.LPAREN, "("},
 		{token.LT, "<"},
 		{token.RPAREN, ")"},
-		{token.RBRACE, "{"},
+		{token.LBRACE, "{"},
 		{token.RETURN, "return"},
 		{token.TRUE, "true"},
 		{token.SEMICOLON, ";"},
-		{token.LBRACE, "{"},
-		{token.ELSE, "else"},
 		{token.RBRACE, "}"},
+		{token.ELSE, "else"},
+		{token.LBRACE, "{"},
 		{token.RETURN, "return"},
 		{token.FALSE, "false"},
 		{token.SEMICOLON, ";"},
-		{token.LBRACE, "}"},
+		{token.RBRACE, "}"},
+		{token.EQ, "=="},
+		{token.NQ, "!="},
 		{token.EOF, ""},
 	}
 
