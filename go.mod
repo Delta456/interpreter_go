@@ -1,3 +1,3 @@
 module github.com/Delta456/interpreter_go
 
-go 1.12
+go 1.13

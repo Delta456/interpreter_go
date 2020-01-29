@@ -9,8 +9,10 @@ import (
 	"io"
 )
 
+// PROMPT is the prompt for the REPL
 const PROMPT = ">> "
 
+// Start starts the REPL
 func Start(in io.Reader, out io.Writer) {
 	scanner := bufio.NewScanner(in)
 
@@ -21,6 +23,9 @@ func Start(in io.Reader, out io.Writer) {
 		}
 		line := scanner.Text()
 		l := lexer.New(line)
+		if line == "exit" {
+			break
+		}
 		for tok := l.NextToken(); tok.Type != token.EOF; tok = l.NextToken() {
 			fmt.Printf("%+v\n", tok)
 		}
